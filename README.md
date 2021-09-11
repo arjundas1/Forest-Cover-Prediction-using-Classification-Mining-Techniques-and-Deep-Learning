@@ -66,9 +66,7 @@ To achieve the project objective we make use of the following tools -
 
 ## Contact Us
 
-_You can contact us through our LinkedIn account or email -_
-* _[John Harshith](https://www.linkedin.com/in/john-harshith-5354371b7/) - john.harshith2020@vitstudent.ac.in_ 
-* _[Arjun Das](https://www.linkedin.com/in/arjun-das-0983561ba/) - arjun.das2020@vitstudent.ac.in_
-* _[Siddharth Pal](https://www.linkedin.com/in/siddharthpal20/) - siddharth.pal2020@vitstudent.ac.in_
-
-_Please refer our project using this [link](https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning) and any contributions are greatly appreciated._
+_You can contact us through our LinkedIn account -_
+* [John Harshith](https://www.linkedin.com/in/john-harshith-5354371b7/)
+* [Arjun Das](https://www.linkedin.com/in/arjun-das-0983561ba/)
+* [Siddharth Pal](https://www.linkedin.com/in/siddharthpal20/)
