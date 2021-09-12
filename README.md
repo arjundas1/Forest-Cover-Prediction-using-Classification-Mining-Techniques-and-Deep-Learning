@@ -33,7 +33,7 @@ The group for our Data Mining project consists of -
 
 ## Project Objective
 
-In 1999, Jock A. Blackard implemented Artificial Neural Network and Discriminant Analysis to predict the forest cover from various areas of the Roosevelt National Forest in Colorado, USA.
+In 1999, Jock A. Blackard and Denis J. Dean implemented Artificial Neural Network and Discriminant Analysis to predict the forest cover from various areas of the Roosevelt National Forest in Colorado, USA.
 
 However, we know from his [paper](https://www.fs.fed.us/rm/ogden/research/publications/downloads/journals/1999_compag_blackard.pdf) that there is only 71.1% prediction
 accuracy in the model created by them. Our objective in this project is to find solutions to better the accuracy using the exact same dataset by creating various classification algorithms.
