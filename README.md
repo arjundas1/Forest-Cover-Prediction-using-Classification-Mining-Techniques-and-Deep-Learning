@@ -48,6 +48,7 @@ The above dataset is a part of the University of California Irvine Machine Learn
 To achieve the project objective we make use of the following tools -
 * **Classification Mining Techniques**
   * Logistic Regression
+  * Gaussian Naive Bayes'
   * K-Nearest Neighbors
   * Support-Vector Machine
   * Random Forest Classification
