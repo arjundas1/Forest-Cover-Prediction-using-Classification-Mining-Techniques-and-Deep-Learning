@@ -21,6 +21,7 @@
 </details>
 
 ## Project Team
+Guidance Professor: Dr. Arup Ghosh, School of Computer Science and Engineering, VIT Vellore.
 
 The group for our Data Mining project consists of -
 
