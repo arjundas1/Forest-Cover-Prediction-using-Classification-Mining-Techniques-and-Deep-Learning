@@ -70,5 +70,5 @@ To achieve the project objective we make use of the following tools -
 
 _You can contact us through our LinkedIn account -_
 * [John Harshith](https://www.linkedin.com/in/john-harshith-5354371b7/)
-* [Arjun Das](https://www.linkedin.com/in/arjun-das-0983561ba/)
+* [Arjun Das](https://www.linkedin.com/in/arjundas1/)
 * [Siddharth Pal](https://www.linkedin.com/in/siddharthpal20/)
