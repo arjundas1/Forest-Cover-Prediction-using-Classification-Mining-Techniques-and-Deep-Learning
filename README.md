@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning">
-    <img alt="Screenshot 2021-09-09 at 11 57 30 PM" src="https://user-images.githubusercontent.com/83835729/132753758-d3334562-56e8-46b8-87ce-6dcc64ad65e8.png" width="350" height="250">
+    <img src="https://user-images.githubusercontent.com/83835729/132753758-d3334562-56e8-46b8-87ce-6dcc64ad65e8.png" width="350" height="250">
   </a>
 </p>
 
@@ -26,7 +26,9 @@
 
 ## Introduction
 
+In recent years, there have been great advancements in the field of Machine Learning and Artificial Intelligence, where automation of lengthy, tedious, and manually implemented algorithms have been replaced with powerful and dynamic language libraries, that have logic programmed already with easy language syntax, thereby making implementations faster. Data Mining techniques have also seen notable improvements lately that enable people to get deeper understanding of various kinds of datasets, and hence infer better targeted prediction, bringing out several unknown or unobserved interpretations of the data.
 
+Complex datasets that have considerably huge size and mediocre usability ratings might indicate towards a possible tendency of mediocrity in the prediction accuracies for the model created based on these datasets. However, it need not be a hard and fast rule and such generalised notions can be claimed incorrect with the use of latest advanced computing tools. The project deals with a dataset of a similar description and finds a variety of methods to create suitable prediction models using Classification Mining Techniques and Deep Learing concepts to yield a higher prediction accuracy than the base paper without overfitting the model for higher accuracy. 
 
 ## Project Team
 
@@ -45,12 +47,11 @@ The group for our Data Mining project consists of -
 
 In 1999, Jock A. Blackard and Denis J. Dean implemented Artificial Neural Network and Discriminant Analysis to predict the forest cover from various areas of the Roosevelt National Forest in Colorado, USA.
 
-However, we know from his paper that there is only 71.1% prediction accuracy in the model created by them. Our objective in this project is to find solutions to better the accuracy using the exact same dataset by creating various classification algorithms.
+However, we know from his paper that there is only 71.1% prediction accuracy in the model created by them using Artificial Neural Networks on various columns of data. Even though this method was better than previously implemented traditional Discriminant Analysis, our objective in this project is to find solutions to better the accuracy using the exact same dataset by creating various classification models.
 
-This dataset includes information on tree type, shadow coverage, distance to nearby landmarks (roads etc), soil type, and local topography. The dataset is very large
-having more than 581K item sets. Its usability is 5.9.
+This dataset includes information on tree type, shadow coverage, wilderness of the surrounding, distance to nearby landmarks (roads etc), soil type, local topography, etc. The dataset is very large having more than 0.5 million item sets. Its usability is 5.9 according to premiere data science websites.
 
-The above dataset is a part of the University of California Irvine Machine Learning Repository, and the source can be found [here](https://archive.ics.uci.edu/ml/datasets/Covertype), and also in the main branch of the repository as [covtype.csv](https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/covtype.csv). Finally the accuracy and overall prediction performance of the model is gauged for efficient use.
+The above dataset has been taken from the University of California Irvine Machine Learning Repository, and the source can be found [here](https://archive.ics.uci.edu/ml/datasets/Covertype), and the dataset is also present in the main branch of the repository as [covtype.csv](https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/covtype.csv). Finally the accuracy and overall prediction performance of the model is gauged for efficient use.
 
 ## Tools Used
 
@@ -79,9 +80,23 @@ To achieve the project objective we make use of the following tools -
 
 
 ## Implementation
+<!---
+
+
+### Visualising the data
 
 
 
+#### Soil Type
+
+The base paper included a vivid description 
+
+<p align="center">
+  <a href="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning">
+    <img src="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/Visualization/Cover%20based%20on%20soil.png" width="650" height="500">
+  </a>
+</p>
+--->
 ## Inference
 
 
