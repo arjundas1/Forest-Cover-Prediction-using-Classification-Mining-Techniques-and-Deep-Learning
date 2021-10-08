@@ -1,6 +1,8 @@
 library(tidyverse)
 library(skimr)
+
 df <- read.csv("C:\\Users\\Arjun\\Downloads\\Datasets\\Forest Cover\\Forest Cover.csv")
+
 glimpse(df)
 nrow(df) - nrow(distinct(df))
 any(is.na(df))
@@ -38,5 +40,34 @@ dff <- (df %>%
          select(Cover_Type:Soil_Type, Elevation:Slope,
                 Hillshade_9am:Hillshade_3pm, Vertical_Distance_To_Hydrology,
                 Horizontal_Distance_To_Hydrology:Horizontal_Distance_To_Fire_Points))
+
 glimpse(dff)
 skim(dff)
+
+palette <- c('sienna1', 'chartreuse', 'lightskyblue1', 
+             'hotpink', 'mediumturquoise', 'indianred1', 'gold')
+ggplot(dff, aes(x = Cover_Type, y = Elevation)) +
+  geom_violin(aes(fill = Cover_Type)) + 
+  geom_point(alpha = 0.01, size = 0.5) +
+  stat_summary(fun = 'median', geom = 'point') +
+  labs(x = 'Forest Cover') +
+  scale_fill_manual(values = palette) +
+  theme_minimal() +
+  theme(legend.position = 'none',
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1),
+        panel.grid.major.x = element_blank())
+
+palette <- c('sienna1', 'chartreuse', 'cadetblue1', 
+             'skyblue2', 'lightpink', 'indianred1', 'olivedrab1')
+ggplot(dff, aes(x = Cover_Type, fill = Cover_Type)) +
+  geom_bar() +
+  facet_wrap(~reorder(Soil_Type, sort(as.integer(Soil_Type))), scales = 'free') +
+  labs(fill = 'Cover Type', title = 'Cover Type by Soil Type') +
+  scale_fill_manual(values = palette) +
+  theme_minimal() +
+  theme(legend.position = 'bottom',
+        plot.title = element_text(hjust = 0.5),
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        panel.grid = element_blank())
