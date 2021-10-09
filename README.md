@@ -68,8 +68,8 @@ To achieve the project objective we make use of the following tools -
   * Matplotlib
   * Scikit-learn
   * Pandas
-  * Keras API
-  * Tensorflow Backend
+  * Keras
+  * Tensorflow
  
 * **R Language Libraries** 
   * Tidyverse
@@ -77,7 +77,13 @@ To achieve the project objective we make use of the following tools -
 
 ## Methodology
 
-
+1. Understanding the components of the dataset.
+2. Creating visuals that will aid us with the understanding and enable us to find the proper combination of data columns for high accuracy.
+3. Using various classification mining algorithms to create models that yield certain prediction accuracy for certain combination of data columns.
+4. Fitting models appropriately and checking if any model has been overfitted or underfitted.
+5. Iterating certain column combinations and algorithms for a large number of times to find the best train-test split and record that prediction percentage as well as the split content in a separate binary file for future use.
+6. Using Deep Learning technique on the dataset and yield prediction accuracy.
+7. Comaparing the performance of all the algorithms and concluding with the most recommended algorithm with this dataset.
 
 ## Implementation
 <!---
