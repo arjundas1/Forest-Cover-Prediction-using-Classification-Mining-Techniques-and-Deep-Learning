@@ -87,6 +87,8 @@ To achieve the project objective we make use of the following tools -
 
 ## Implementation
 <!---
+### Understanding the Data
+
 
 
 ### Visualising the data
@@ -103,6 +105,7 @@ The base paper included a vivid description
   </a>
 </p>
 --->
+
 ## Inference
 
 
@@ -114,6 +117,7 @@ The base paper included a vivid description
 ## References
 
 - [_Blackard, J. A., & Dean, D. J. (1999). Comparative accuracies of artificial neural networks and discriminant analysis in predicting forest cover types from cartographic variables. Computers and electronics in agriculture, 24(3), 131-151._](https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/References/Comparative%20accuracies%20of%20artificial%20neural%20networks%20and%20discriminant%20analysis%20in%20predicting%20forest%20cover%20types%20from%20cartographic%20variables.pdf)
+
 <!---
 ## Contact Us
 
