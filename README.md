@@ -87,9 +87,38 @@ To achieve the project objective we make use of the following tools -
 
 ## Implementation
 <!---
+A segment of the visualisation has used the R language and its libraries to help us understand the dataset better. The rest of the visualisation, classification and DL analysis has been implemented with the help of Python libraries.
+
 ### Understanding the Data
 
+The 13 variables included in the dataset are:
 
+- Cover_Type: One of seven types of tree cover found in the forest. In the data downloaded for the project, the observations are coded 1 through 7. We have renamed them for clarity. Observations are based on the primary cover type of 30m x 30m areas, as determined by the United States Forest Service. This is our response variable.
+- Wilderness_Area: Of the six wilderness areas in the Roosevelt National Forest, four were used in this dataset. In the original dataset, these were one-hot encoded. We put them in long form for better visualisation and because most machine learning methods will automatically one-hot encode categorical variables for us.
+- Soil_Type: 40 soil types were identified in the dataset and more detailed information regarding the types can be found at https://www.kaggle.com/uciml/forest-cover-type-dataset. Similar to Wilderness_Area, Soil_Type was originally one-hot encoded.
+- Elevation: The elevation of the observation in meters above sea level.
+- Aspect: The aspect of the observation in degrees azimuth.
+- Slope: The slope at which the observation is observed in degrees.
+- Hillshade_9am: The amount of hillshade for the observation at 09:00 on the summer solstice. This is a value between 0 and 225.
+- Hillshade_Noon: The amount of hillshade for the observation at 12:00 on the summer solstice. This is a value between 0 and 225.
+- Hillshade_3pm: The amount of hillshade for the observation at 15:00 on the summer solstice. This is a value between 0 and 225.
+- Vertical_Distance_To_Hydrology: Vertical distance to nearest water source in meters. Negative numbers indicate distance below a water source.
+- Horizontal_Distance_To_Hydrology: Horizontal distance to nearest water source in meters.
+- Horizontal_Distance_To_Roadways: Horizontal distance to nearest roadway in meters.
+- Horizontal_Distance_To_Fire_Points: Horizontal distance to nearest wildfire ignition point in meters.
+
+```R
+library(tidyverse)
+library(skimr)
+
+df <- read.csv("Forest Cover.csv")
+```
+```R
+glimpse(df)
+nrow(df) - nrow(distinct(df))
+any(is.na(df))
+skim(df)
+```
 
 ### Visualising the data
 
@@ -99,13 +128,66 @@ To achieve the project objective we make use of the following tools -
 
 The base paper included a vivid description 
 
+```R
+set.seed(1808)
+
+dff <- (df %>%
+         group_by(Cover_Type) %>%
+         sample_n(size = 1000) %>%
+         ungroup() %>%
+         gather(Wilderness_Area, Wilderness_Value, 
+                Wilderness_Area1:Wilderness_Area4) %>% 
+         filter(Wilderness_Value >= 1) %>%
+         select(-Wilderness_Value) %>%
+         mutate(Wilderness_Area = str_extract(Wilderness_Area, '\\d+'),
+                Wilderness_Area = str_replace_all(Wilderness_Area,
+                                                  c(`1` = 'Rawah',
+                                                    `2` = 'Neota',
+                                                    `3` = 'Comanche Peak',
+                                                    `4` = 'Cache la Poudre')),
+                Wilderness_Area = as.factor(Wilderness_Area)) %>%
+         gather(Soil_Type, Soil_Value, Soil_Type1:Soil_Type40) %>%
+         filter(Soil_Value == 1) %>%
+         select(-Soil_Value) %>% 
+         mutate(Soil_Type = as.factor(str_extract(Soil_Type, '\\d+'))) %>%
+         mutate(Cover_Type = str_replace_all(Cover_Type,
+                                             c(`1` = 'Spruce/Fir',
+                                               `2` = 'Lodgepole Pine',
+                                               `3` = 'Ponderosa Pine',
+                                               `4` = 'Cottonwood/Willow',
+                                               `5` = 'Aspen',
+                                               `6` = 'Douglas Fir',
+                                               `7` = 'Krummholz')),
+                Cover_Type = as.factor(Cover_Type)) %>%
+         select(Cover_Type:Soil_Type, Elevation:Slope,
+                Hillshade_9am:Hillshade_3pm, Vertical_Distance_To_Hydrology,
+                Horizontal_Distance_To_Hydrology:Horizontal_Distance_To_Fire_Points))
+
+glimpse(dff)
+skim(dff)
+
+palette <- c('sienna1', 'chartreuse', 'lightskyblue1', 
+             'hotpink', 'mediumturquoise', 'indianred1', 'gold')
+ggplot(dff, aes(x = Cover_Type, y = Elevation)) +
+  geom_violin(aes(fill = Cover_Type)) + 
+  geom_point(alpha = 0.01, size = 0.5) +
+  stat_summary(fun = 'median', geom = 'point') +
+  labs(x = 'Forest Cover') +
+  scale_fill_manual(values = palette) +
+  theme_minimal() +
+  theme(legend.position = 'none',
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1),
+        panel.grid.major.x = element_blank())
+```
+
 <p align="center">
   <a href="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning">
     <img src="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/Visualization/Cover%20based%20on%20soil.png" width="650" height="500">
   </a>
 </p>
---->
 
+--->
 ## Inference
 
 
