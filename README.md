@@ -188,6 +188,46 @@ ggplot(dff, aes(x = Cover_Type, y = Elevation)) +
 </p>
 
 --->
+
+### Classification Algorithm Determination
+
+There exists various classification mining algorithms that can be used and implemented to form a model that yields very high prediction accuracy. A comparison of various feature selection with various supervised classification learning algorithms have been used and recorded. This tells us about the range of prediction percent one can get while using a particular algorithm (with or without ensemble) for a particular combination of features or data labels.
+
+#### Gaussian Naive Bayes'
+
+
+
+#### Logistic Regression
+
+
+
+#### Support Vector Machines
+
+
+
+#### K-Nearest Neighbors
+
+
+
+#### Random Forest
+
+A bagging ensemble technique for the Decision Tree Algorithm, Random Forest generates a constant prediction accuracy at a particular n (number of estimators that gets created) for a the column combinations. Therefore, there is no need to store the highest recorded accuracy and its corresponding test-train split in a pickle file. Random forest has also been one of the computationally cheapest techniques and resulted in one of the highest recorded prediction accuracies for many of the column combinations.
+
+More information on the algorithm used:
+- Number of estimators - 100
+- Node splitting criteria taken - Gini index
+- No explicit mention of the depth of the tree that is formed
+- For best split, square root of the features was done instead of taking logarithm
+- No random state included and no verbosity required
+
+```python
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+rf = RandomForestClassifier(n_estimators=100)
+rf.fit(x_train, y_train)
+pred = rf.predict(x_test)
+print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3), "%", sep="")
+```
+
 ## Inference
 
 
