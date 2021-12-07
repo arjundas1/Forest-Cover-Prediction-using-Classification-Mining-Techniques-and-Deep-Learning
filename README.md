@@ -63,6 +63,9 @@ To achieve the project objective we make use of the following tools -
   * Support-Vector Machine
   * Random Forest Classification
 
+* **Deep Learning**
+  * Artificial Neural Network
+
 * **Python Language Libraries**
   * Seaborn
   * Matplotlib
@@ -86,12 +89,12 @@ To achieve the project objective we make use of the following tools -
 7. Comaparing the performance of all the algorithms and concluding with the most recommended algorithm with this dataset.
 
 ## Implementation
-<!---
+
 A segment of the visualisation has used the R language and its libraries to help us understand the dataset better. The rest of the visualisation, classification and DL analysis has been implemented with the help of Python libraries.
 
 ### Understanding the Data
 
-The 13 variables included in the dataset are:
+There are 13 columns of interest that are included in the dataset:
 
 - Cover_Type: One of seven types of tree cover found in the forest. In the data downloaded for the project, the observations are coded 1 through 7. We have renamed them for clarity. Observations are based on the primary cover type of 30m x 30m areas, as determined by the United States Forest Service. This is our response variable.
 - Wilderness_Area: Of the six wilderness areas in the Roosevelt National Forest, four were used in this dataset. In the original dataset, these were one-hot encoded. We put them in long form for better visualisation and because most machine learning methods will automatically one-hot encode categorical variables for us.
@@ -181,13 +184,13 @@ ggplot(dff, aes(x = Cover_Type, y = Elevation)) +
         panel.grid.major.x = element_blank())
 ```
 
-<p align="center">
+<p align="left">
   <a href="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning">
-    <img src="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/Visualization/Cover%20based%20on%20soil.png" width="650" height="500">
+    <img src="https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/Visualization/Cover%20based%20on%20soil.png" width="500" height="400">
   </a>
 </p>
 
---->
+
 
 ### Classification Algorithm Determination
 
@@ -197,17 +200,53 @@ There exists various classification mining algorithms that can be used and imple
 
 
 
+```python
+from sklearn.naive_bayes import GaussianNB
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+model = GaussianNB()
+model.fit(x_train, y_train)
+print("Accuracy using Gaussian Naive Bayes: ", round(model.score(x_test, y_test) * 100, 3), "%", sep="")
+```
+
 #### Logistic Regression
 
 
+
+```python
+from sklearn.linear_model import LogisticRegression
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+lr = LogisticRegression(solver="saga", max_iter=7500)
+lrmodel = lr.fit(x_train, y_train)
+lracc = lr.score(x_test, y_test)
+print("Accuracy using Logistic Regression: ", round(lracc*100, 3), "%", sep="")
+```
 
 #### Support Vector Machines
 
 
 
+```python
+from sklearn import svm, metrics
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+svmmodel = svm.SVC(kernel="rbf", C=1)
+svmmodel.fit(x_train, y_train)
+y_pred = svmmodel.predict(x_test)
+svmacc = metrics.accuracy_score(y_test, y_pred)
+print("Accuracy using SVM: ", round(svmacc*100, 3), "%", sep="")
+```
+
 #### K-Nearest Neighbors
 
+This 
 
+```python
+from sklearn.neighbors import KNeighborsClassifier
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+knnmodel = KNeighborsClassifier(n_neighbors=3)
+knnmodel.fit(x_train, y_train)
+knnacc = knnmodel.score(x_test, y_test)
+print("Accuracy using KNN: ", round(knnacc*100, 3), "%", sep="")
+```
 
 #### Random Forest
 
@@ -221,6 +260,7 @@ More information on the algorithm used:
 - No random state included and no verbosity required
 
 ```python
+from sklearn.ensemble import RandomForestClassifier
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 rf = RandomForestClassifier(n_estimators=100)
 rf.fit(x_train, y_train)
@@ -239,7 +279,9 @@ print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3),
 ## References
 
 - [_Blackard, J. A., & Dean, D. J. (1999). Comparative accuracies of artificial neural networks and discriminant analysis in predicting forest cover types from cartographic variables. Computers and electronics in agriculture, 24(3), 131-151._](https://github.com/arjundas1/Forest-Cover-Prediction-using-Classification-Mining-Techniques-and-Deep-Learning/blob/main/References/Comparative%20accuracies%20of%20artificial%20neural%20networks%20and%20discriminant%20analysis%20in%20predicting%20forest%20cover%20types%20from%20cartographic%20variables.pdf)
-
+- https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+- https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+- https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html
 <!---
 ## Contact Us
 
