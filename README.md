@@ -268,13 +268,11 @@ pred = rf.predict(x_test)
 print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3), "%", sep="")
 ```
 
-## Inference
-
-
-
 ## Conclusion
 
+This study improves upon the work of Jock A. Blackard and Denis J. Dean in predicting forest covers. After training and testing the same dataset with various classification models, some of the models managed to beat the old accuracy of "71.1%" with a new best accuracy of "97.". 
 
+With the optimizer and loss functions used, our deep learning model was able to beat the old accuracy too, with a whooping "99.9%".
 
 ## References
 
