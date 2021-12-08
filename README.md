@@ -198,7 +198,7 @@ There exists various classification mining algorithms that can be used and imple
 
 #### Gaussian Naive Bayes'
 
-
+Gaussian Naive Bayes' algorithm has been the least efficient algorithm when it came to the yield of prediction accuracy. The normal distribution of the continuous variables were not forming well enough to yield a desirably high prediction accuracy, as well as overtake the prediction accuracy as mentioned in the research paper. Therefore, we try other classification algorithms to achieve success.
 
 ```python
 from sklearn.naive_bayes import GaussianNB
@@ -210,7 +210,13 @@ print("Accuracy using Gaussian Naive Bayes: ", round(model.score(x_test, y_test)
 
 #### Logistic Regression
 
+Logistic Regression was the first algorithm to beat the research paper's prediction accuracy for a certain combinations of data columns only. This algorithm, when implemented on a huge dataset makes the prediction very sluggish and it may take hours to run over a single iteration of the algorithm so as to converge the solver.
 
+More information on the algorithm used:
+- Penalty type: l2
+- Solver: saga
+- No class weight, no random state
+- Maximum number of iterations taken to coverge the solver: 7500
 
 ```python
 from sklearn.linear_model import LogisticRegression
@@ -223,7 +229,13 @@ print("Accuracy using Logistic Regression: ", round(lracc*100, 3), "%", sep="")
 
 #### Support Vector Machines
 
+SVM takes the highest time to generate a prediction accuracy for this dataset. Each iteration takes more than 7 hours to run and execute. Such a computationally costly algorithm, although good in prediction will be highly time consuming for the users. The prediction accuracy for a particular combination of columns will differ for every variety of train-test splt. Therefore, in order to find the highest prediction possible, we iterate the algorithm a few times for a different train-test split and record the highest prediction accuracy's corresponding split in a pickle file for future use.
 
+More information on the algorithm used:
+- Kernel used: rbf
+- Degree: 3
+- Regularization parameter: 1
+- No verbosity, no random state
 
 ```python
 from sklearn import svm, metrics
@@ -237,7 +249,12 @@ print("Accuracy using SVM: ", round(svmacc*100, 3), "%", sep="")
 
 #### K-Nearest Neighbors
 
-This 
+This lazy learner algorithm is highly effective, and better than SVM but it becomes quite computationally expensive when it is run on dataset of immense size. Due to variations in answer for every train-test split, we had to iterate the algorithm of a few number of times and store the split with the highest accuracy in a pickle. 
+
+More information on the algorithm used:
+- Number of neighbors set: 3
+- Distance set: Minkowski
+- Weights set to each point: uniform
 
 ```python
 from sklearn.neighbors import KNeighborsClassifier
@@ -282,6 +299,8 @@ print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3),
 - https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
 - https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 - https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html
+- https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
+- https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
 <!---
 ## Contact Us
 
