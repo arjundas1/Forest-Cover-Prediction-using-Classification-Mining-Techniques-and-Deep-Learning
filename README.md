@@ -291,7 +291,7 @@ print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3),
 
 ## Conclusion
 
-
+The objective of the project was successfully achieved as we found alternative supervised learning approaches that are able to yield a much higher and more accurate prediction percentage for the given dataset in a reduced time frame, owing to the size of the dataset. The most suitable algorithm would be K Nearest Neighbors algorithm and the label of interest can be aptly predicted by the taking all the columns into account.
 
 ## References
 
