@@ -285,6 +285,37 @@ pred = rf.predict(x_test)
 print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3), "%", sep="")
 ```
 
+#### Deep Learning
+
+Artificial Neural Networks (ANN) are multi-layer fully-connected neural nets and consist of an input layer, multiple hidden layers, and an output layer. ANN are inspired by the design of a human brain and tries to simulate it.
+An artificial neuron receives a signal then processes it and can signal neurons connected to it. The signal at a connection is a real number, and the output of each neuron is computed by an activation function of the sum of its inputs. Neurons and edges typically have a weight that adjusts as learning proceeds. The weight increases or decreases the strength of the signal at a connection. Neurons may have a threshold such that a signal is sent only if the aggregate signal crosses that threshold.
+
+More information on the algorithm used:
+- Number of hidden layers: 2
+- Learning Algorithm: stochastic gradient descent extension- Adam Optimizer
+- Loss Function: sparse categorical crossentropy
+- Activation function for input layer: linear (f(x) = x)
+- Activation function for the 2 hidden layers: Rectified Linear Activation Unit (RELU)
+- Activation function for output layer: Softmax Activation Function
+- Number of nodes: 64
+- Batch size: 64
+- Number of epochs: 8
+- Input variables linearly scaled to lie in range [0, 1]
+
+```python
+import tensorflow as tf
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+cover_model = tf.keras.models.Sequential()
+cover_model.add(tf.keras.layers.Dense(
+    units=64, activation='relu', input_shape=(X_train.shape[1],)))
+cover_model.add(tf.keras.layers.Dense(units=64, activation='relu'))
+cover_model.add(tf.keras.layers.Dense(units=8, activation='softmax'))
+cover_model.compile(optimizer=tf.optimizers.Adam(
+), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+history_cover = cover_model.fit(
+    X_train, y_train, epochs=8, batch_size=64, validation_data=(X_test, y_test))
+```
+
 ## Inference
 
 
