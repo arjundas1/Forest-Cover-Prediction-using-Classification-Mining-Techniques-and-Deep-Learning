@@ -318,7 +318,7 @@ history_cover = cover_model.fit(
 
 ## Inference
 
-
+The classification mining technique algorithms have been run and every prediction accuracy was recorded. The [Accuracy Table](https://github.com/JohnHarshith/Forest-Cover-Prediction-using-Classification-Mining-Techniques/blob/main/AccuracyTable.pdf) shows the variation in the performance of every algorithm used for that particular combination of columns. 
 
 ## Conclusion
 
