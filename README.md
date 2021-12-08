@@ -323,6 +323,12 @@ history_cover = cover_model.fit(
 ## Conclusion
 
 The objective of the project was successfully achieved as we found alternative supervised learning approaches that are able to yield a much higher and more accurate prediction percentage for the given dataset in a reduced time frame, owing to the size of the dataset. The most suitable algorithm would be K Nearest Neighbors algorithm and the label of interest can be aptly predicted by the taking all the columns into account.
+=======
+## Conclusion
+
+This study improves upon the work of Jock A. Blackard and Denis J. Dean in predicting forest covers. After training and testing the same dataset with various classification models, some of the models managed to beat the old accuracy of "71.1%" with a new best accuracy of "97". 
+
+With the optimizer and loss functions used, our deep learning model was able to beat the old accuracy too, with a whooping "99.9%".
 
 ## References
 
@@ -341,3 +347,4 @@ _You can contact us through our LinkedIn account -_
 * [Arjun Das](https://www.linkedin.com/in/arjundas1/)
 * [Siddharth Pal](https://www.linkedin.com/in/siddharthpal20/)
 --->
+
