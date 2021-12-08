@@ -247,24 +247,6 @@ svmacc = metrics.accuracy_score(y_test, y_pred)
 print("Accuracy using SVM: ", round(svmacc*100, 3), "%", sep="")
 ```
 
-#### K-Nearest Neighbors
-
-This lazy learner algorithm is highly effective, and better than SVM but it becomes quite computationally expensive when it is run on dataset of immense size. Due to variations in answer for every train-test split, we had to iterate the algorithm of a few number of times and store the split with the highest accuracy in a pickle. 
-
-More information on the algorithm used:
-- Number of neighbors set: 3
-- Distance set: Minkowski
-- Weights set to each point: uniform
-
-```python
-from sklearn.neighbors import KNeighborsClassifier
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-knnmodel = KNeighborsClassifier(n_neighbors=3)
-knnmodel.fit(x_train, y_train)
-knnacc = knnmodel.score(x_test, y_test)
-print("Accuracy using KNN: ", round(knnacc*100, 3), "%", sep="")
-```
-
 #### Random Forest
 
 A bagging ensemble technique for the Decision Tree Algorithm, Random Forest generates a constant prediction accuracy at a particular n (number of estimators that gets created) for a the column combinations. Therefore, there is no need to store the highest recorded accuracy and its corresponding test-train split in a pickle file. Random forest has also been one of the computationally cheapest techniques and resulted in one of the highest recorded prediction accuracies for many of the column combinations.
@@ -283,6 +265,24 @@ rf = RandomForestClassifier(n_estimators=100)
 rf.fit(x_train, y_train)
 pred = rf.predict(x_test)
 print("Accuracy using Random Forest: ", round(rf.score(x_test,y_test) * 100, 3), "%", sep="")
+```
+
+#### K-Nearest Neighbors
+
+This lazy learner algorithm is highly effective, and better than Random Forest but it becomes quite computationally expensive when it is run on dataset of immense size. Due to variations in answer for every train-test split, we had to iterate the algorithm of a few number of times and store the split with the highest accuracy in a pickle. If the time is not an issue, then KNN yields the highest ever recorded prediction percentages.
+
+More information on the algorithm used:
+- Number of neighbors set: 3
+- Distance set: Minkowski
+- Weights set to each point: uniform
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+knnmodel = KNeighborsClassifier(n_neighbors=3)
+knnmodel.fit(x_train, y_train)
+knnacc = knnmodel.score(x_test, y_test)
+print("Accuracy using KNN: ", round(knnacc*100, 3), "%", sep="")
 ```
 
 ## Inference
